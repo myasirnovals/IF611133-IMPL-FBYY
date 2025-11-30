@@ -1,12 +1,12 @@
-create table rekam_medis
+CREATE TABLE rekam_medis
 (
-    id_rekam_medis char(16),
-    id_dokter char(10),
-    keluhan text,
-    diagnosa text,
-    catatan_dokter text,
-    tanggal_periksa date,
+    id_rekam_medis CHAR(16) NOT NULL ,
+    id_dokter CHAR(10) NOT NULL ,
+    keluhan TEXT NOT NULL ,
+    diagnosa TEXT NOT NULL ,
+    catatan_dokter TEXT,
+    tanggal_periksa DATE DEFAULT CURRENT_DATE,
 
-    primary key (id_rekam_medis),
-    constraint fk_rekam_medis_dokter foreign key (id_dokter) references dokter(id_dokter) on delete restrict
+    PRIMARY KEY (id_rekam_medis),
+    CONSTRAINT fk_rekam_medis_dokter FOREIGN KEY (id_dokter) REFERENCES dokter(id_dokter) ON DELETE RESTRICT 
 );
