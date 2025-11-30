@@ -1,4 +1,4 @@
-package id.ac.ifunjani.sistemreservasiklinik;
+package id.ac.ifunjani.sistemreservasiklinik.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
