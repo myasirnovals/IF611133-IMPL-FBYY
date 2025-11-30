@@ -4,7 +4,7 @@ public class Rujukan {
     private String idRujukan;
     private String deskripsiRujukan;
     private String rumahSakitTujuan;
-    private String idRekamMedis; 
+    private String idRekamMedis;
 
     public String getIdRujukan() {
         return idRujukan;
