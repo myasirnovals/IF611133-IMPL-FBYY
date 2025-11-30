@@ -5,4 +5,4 @@ CREATE table staff
     password STRING (255) NOT NULL,
 
     PRIMARY KEY (id_staff),
-)
+);
