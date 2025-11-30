@@ -8,4 +8,6 @@ module id.ac.ifunjani.sistemreservasiklinik {
     exports id.ac.ifunjani.sistemreservasiklinik;
     exports id.ac.ifunjani.sistemreservasiklinik.controller;
     opens id.ac.ifunjani.sistemreservasiklinik.controller to javafx.fxml;
+    exports id.ac.ifunjani.sistemreservasiklinik.model;
+    opens id.ac.ifunjani.sistemreservasiklinik.model to javafx.fxml;
 }

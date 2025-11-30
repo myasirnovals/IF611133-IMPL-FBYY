@@ -1,4 +1,4 @@
-package id.ac.ifunjani.sistemreservasiklinik;
+package id.ac.ifunjani.sistemreservasiklinik.model;
 
 public class Login {
     private String username;
