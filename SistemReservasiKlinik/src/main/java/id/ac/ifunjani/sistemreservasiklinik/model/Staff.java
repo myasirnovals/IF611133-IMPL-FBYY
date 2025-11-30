@@ -1,4 +1,5 @@
 package id.ac.ifunjani.sistemreservasiklinik.model;
 
-public class Foo {
+public class Staff {
+    
 }
