@@ -1,4 +1,5 @@
 package id.ac.ifunjani.sistemreservasiklinik.model;
 
-public class MengelolaReservasi {
+public class mengelolaReservasi {
+    private int id;
 }
