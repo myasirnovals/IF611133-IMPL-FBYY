@@ -1,4 +1,4 @@
-CREATE TABLE laReservasi
+CREATE TABLE reservasi
 (
     id_reservasi VARCHAR  (5) NOT NULL,
     id_pasien VARCHAR (255) NOT NULL,
