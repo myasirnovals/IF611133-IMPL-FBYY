@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 public class RekamMedis {
     private String idRekamMedis;
-
-    private String idReservasi;
     private String idDokter;
 
     private String keluhan;
