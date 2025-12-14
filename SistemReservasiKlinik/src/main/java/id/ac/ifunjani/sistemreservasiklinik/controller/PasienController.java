@@ -1,8 +1,6 @@
 package id.ac.ifunjani.sistemreservasiklinik.controller;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
-import id.ac.ifunjani.sistemreservasiklinik.repository.PasienRepository;
-import id.ac.ifunjani.sistemreservasiklinik.service.PasienService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
