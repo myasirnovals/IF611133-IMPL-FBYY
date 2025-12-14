@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PasienRepository {
-
     Connection conn = DatabaseConnection.getConnection();
 
     public void save(Pasien p) {
         try {
-            String sql = "INSERT INTO pasien VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO pasien (id_pasien, nama_lengkap, alamat, tanggal_lahir, no_telepon, password) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, p.getIdPasien());
@@ -40,7 +39,6 @@ public class PasienRepository {
                 p.setIdPasien(rs.getString("id_pasien"));
                 p.setNamaLengkap(rs.getString("nama_lengkap"));
                 p.setAlamat(rs.getString("alamat"));
-                
                 p.setTanggalLahir(java.time.LocalDate.parse(rs.getString("tanggal_lahir")));
                 p.setNoTelepon(rs.getString("no_telepon"));
                 p.setPassword(rs.getString("password"));
