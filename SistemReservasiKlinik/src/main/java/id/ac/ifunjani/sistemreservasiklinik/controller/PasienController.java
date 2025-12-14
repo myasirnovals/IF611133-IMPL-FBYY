@@ -2,6 +2,7 @@ package id.ac.ifunjani.sistemreservasiklinik.controller;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
 import id.ac.ifunjani.sistemreservasiklinik.repository.PasienRepository;
+import id.ac.ifunjani.sistemreservasiklinik.service.PasienService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -23,8 +24,8 @@ public class PasienController {
 
     @FXML
     private TextField txtPassword;
-    
-    PasienRepository repo = new PasienRepository();
+
+    PasienService service = new PasienService();
     
     @FXML
     private void handleDaftar() {
@@ -50,8 +51,8 @@ public class PasienController {
             p.setPassword(pass);
             
             p.setTanggalLahir(LocalDate.parse(tglStr));
-            
-            repo.save(p);
+
+            service.daftarPasien(p);
             menampilkanPesan("Registrasi Berhasil!", Alert.AlertType.INFORMATION);
             
             txtNama.setText("");
