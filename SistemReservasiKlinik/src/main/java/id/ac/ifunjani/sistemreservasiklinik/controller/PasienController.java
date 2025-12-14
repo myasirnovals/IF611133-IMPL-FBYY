@@ -1,6 +1,8 @@
 package id.ac.ifunjani.sistemreservasiklinik.controller;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
+import id.ac.ifunjani.sistemreservasiklinik.service.PasienService;
+import id.ac.ifunjani.sistemreservasiklinik.service.impl.PasienServiceImpl;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -23,7 +25,7 @@ public class PasienController {
     @FXML
     private TextField txtPassword;
 
-    PasienService service = new PasienService();
+    private PasienService service = new PasienServiceImpl();
     
     @FXML
     private void handleDaftar() {
