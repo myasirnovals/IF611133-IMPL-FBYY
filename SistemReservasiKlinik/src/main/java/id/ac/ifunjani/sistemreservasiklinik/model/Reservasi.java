@@ -4,7 +4,7 @@ public class Reservasi {
     private String idReservasi;
     private Pasien pasien;
     private Dokter dokter;
-    private String infoJadwal; // String gabungan hari & jam
+    private String infoJadwal;
     private String status;
 
     public Reservasi(String idReservasi, Pasien pasien, Dokter dokter, String infoJadwal, String status) {
