@@ -5,17 +5,15 @@ public class Dokter {
     private String namaDokter;
     private String spesialis;
     private String noTelp;
-    private String password;
 
     public Dokter() {
     }
 
-    public Dokter(String idDokter, String namaDokter, String spesialis, String noTelp, String password) {
+    public Dokter(String idDokter, String namaDokter, String spesialis, String noTelp) {
         this.idDokter = idDokter;
         this.namaDokter = namaDokter;
         this.spesialis = spesialis;
         this.noTelp = noTelp;
-        this.password = password;
     }
 
     public String getIdDokter() {
@@ -50,11 +48,8 @@ public class Dokter {
         this.noTelp = noTelp;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String toString() {
+        return namaDokter;
     }
 }

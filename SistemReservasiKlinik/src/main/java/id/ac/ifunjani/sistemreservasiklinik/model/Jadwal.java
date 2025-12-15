@@ -9,18 +9,9 @@ public class Jadwal {
     private String hari;
     private LocalTime jamMulai;
     private LocalTime jamSelesai;
-    private String idDokter;
+    private Dokter dokter;
 
     public Jadwal() {
-    }
-
-    public Jadwal(String idJadwal, LocalDate tanggal, String hari, LocalTime jamMulai, LocalTime jamSelesai, String idDokter) {
-        this.idJadwal = idJadwal;
-        this.tanggal = tanggal;
-        this.hari = hari;
-        this.jamMulai = jamMulai;
-        this.jamSelesai = jamSelesai;
-        this.idDokter = idDokter;
     }
 
     public String getIdJadwal() {
@@ -63,11 +54,11 @@ public class Jadwal {
         this.jamSelesai = jamSelesai;
     }
 
-    public String getIdDokter() {
-        return idDokter;
+    public Dokter getDokter() {
+        return dokter;
     }
 
-    public void setIdDokter(String idDokter) {
-        this.idDokter = idDokter;
+    public void setDokter(Dokter dokter) {
+        this.dokter = dokter;
     }
 }
