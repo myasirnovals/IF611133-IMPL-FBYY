@@ -3,6 +3,7 @@ module id.ac.ifunjani.sistemreservasiklinik {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
+    requires java.sql;
 
     opens id.ac.ifunjani.sistemreservasiklinik to javafx.fxml;
     exports id.ac.ifunjani.sistemreservasiklinik;
