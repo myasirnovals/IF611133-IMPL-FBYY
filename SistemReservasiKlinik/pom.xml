@@ -65,7 +65,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                id.ac.ifunjani.sistemreservasiklinik/id.ac.ifunjani.sistemreservasiklinik.KlinikApplication
+                                id.ac.ifunjani.sistemreservasiklinik/id.ac.ifunjani.sistemreservasiklinik.MainApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
