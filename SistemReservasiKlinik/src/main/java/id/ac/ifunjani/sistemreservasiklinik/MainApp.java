@@ -1,5 +1,6 @@
 package id.ac.ifunjani.sistemreservasiklinik;
 
+import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,11 +10,13 @@ import java.io.IOException;
 
 public class MainApp extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("view/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage primaryStage) {
+        SceneManager.getInstance().setStage(primaryStage);
+        primaryStage.setTitle("Aplikasi Klinik Sehat");
+        SceneManager.getInstance().switchScene("/fxml/login.fxml");
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
