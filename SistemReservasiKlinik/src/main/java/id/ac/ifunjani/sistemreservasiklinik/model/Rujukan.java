@@ -1,10 +1,14 @@
 package id.ac.ifunjani.sistemreservasiklinik.model;
 
 public class Rujukan {
+
     private String idRujukan;
     private String deskripsiRujukan;
     private String rumahSakitTujuan;
-    private String idRekamMedis;
+    private RekamMedis rekamMedis;
+
+    public Rujukan() {
+    }
 
     public String getIdRujukan() {
         return idRujukan;
@@ -30,11 +34,11 @@ public class Rujukan {
         this.rumahSakitTujuan = rumahSakitTujuan;
     }
 
-    public String getIdRekamMedis() {
-        return idRekamMedis;
+    public RekamMedis getRekamMedis() {
+        return rekamMedis;
     }
 
-    public void setIdRekamMedis(String idRekamMedis) {
-        this.idRekamMedis = idRekamMedis;
+    public void setRekamMedis(RekamMedis rekamMedis) {
+        this.rekamMedis = rekamMedis;
     }
 }
