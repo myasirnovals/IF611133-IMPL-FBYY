@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.klinik.controller.LoginController">
+
+    <center>
+        <VBox spacing="10"
+              alignment="CENTER"
+              style="-fx-padding: 20;">
+
+            <Label text="Masuk ke Aplikasi Klinik"
+                   style="-fx-font-size: 18;" />
+
+            <Label text="Silakan login sesuai peran Anda (Pasien, Dokter, atau Staff)." />
+
+            <VBox spacing="8" maxWidth="300">
+
+                <Label text="Masuk sebagai" />
+                <ComboBox fx:id="roleCombo" promptText="Pilih role">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Pasien" />
+                            <String fx:value="Dokter" />
+                            <String fx:value="Staff" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Label text="ID / Username" />
+                <TextField fx:id="idField" />
+
+                <Label text="Password" />
+                <PasswordField fx:id="passwordField" />
+
+                <Label fx:id="errorLabel" textFill="red" />
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Register Pasien"
+                            onAction="#onRegisterPasien" />
+                    <Button text="Login"
+                            onAction="#onLogin" />
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
