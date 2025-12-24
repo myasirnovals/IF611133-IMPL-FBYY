@@ -6,7 +6,7 @@
 <?import javafx.collections.FXCollections?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.klinik.controller.LoginController">
+            fx:controller="id.ac.ifunjani.sistemreservasiklinik.LoginController">
 
     <center>
         <VBox spacing="10"

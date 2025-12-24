@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="id.ac.ifunjani.sistemreservasiklinik.controller.PasienDashboardController"
+            prefWidth="1100"
+            prefHeight="650">
+
+    <!-- Header -->
+    <top>
+        <HBox spacing="12"
+              alignment="CENTER_LEFT"
+              style="-fx-background-color: #0D47A1;">
+            <padding>
+                <Insets top="12" right="14" bottom="12" left="14"/>
+            </padding>
+
+            <VBox spacing="2">
+                <Label text="Dashboard Pasien"
+                       style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Label fx:id="welcomeLabel"
+                       text="Selamat datang, Pasien."
+                       style="-fx-text-fill: rgba(255,255,255,0.9);"/>
+            </VBox>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Button text="Logout"
+                    onAction="#onLogout"
+                    style="-fx-background-color: rgba(255,255,255,0.18); -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12"/>
+            </padding>
+
+            <!-- Ringkasan -->
+            <VBox spacing="6"
+                  style="-fx-background-color: white; -fx-border-color: #E0E0E0;">
+                <padding>
+                    <Insets top="10" right="12" bottom="10" left="12"/>
+                </padding>
+
+                <Label text="Informasi Pasien"
+                       style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="ID:" style="-fx-text-fill: #555;"/>
+                    <Label fx:id="idPasienLabel" text="-"/>
+                    <Label text="Nama:" style="-fx-text-fill: #555;"/>
+                    <Label fx:id="namaPasienLabel" text="-"/>
+                </HBox>
+
+                <Separator/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField"
+                               promptText="Cari (ID reservasi / keluhan / diagnosa)..."
+                               prefWidth="420"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button text="Refresh" onAction="#onRefresh"/>
+                    <Button text="Buat Reservasi"
+                            onAction="#onBuatReservasi"
+                            style="-fx-background-color: #2E7D32; -fx-text-fill: white;"/>
+                </HBox>
+
+                <Label fx:id="infoLabel"
+                       textFill="#1565C0"
+                       wrapText="true"/>
+            </VBox>
+
+            <!-- Split: Reservasi (kiri) & Rekam Medis (kanan) -->
+            <SplitPane dividerPositions="0.52">
+
+                <!-- Kiri: Reservasi -->
+                <VBox spacing="8"
+                      style="-fx-background-color: white; -fx-border-color: #E0E0E0;">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <Label text="Reservasi / Kunjungan"
+                           style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                    <TableView fx:id="reservasiTable" prefHeight="460">
+                        <columns>
+                            <TableColumn fx:id="colIdReservasi" text="ID" prefWidth="90"/>
+                            <TableColumn fx:id="colTanggal" text="Tanggal" prefWidth="110"/>
+                            <TableColumn fx:id="colDokter" text="Dokter" prefWidth="170"/>
+                            <TableColumn fx:id="colPoli" text="Spesialis/Poli" prefWidth="150"/>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="110"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Detail Reservasi" onAction="#onDetailReservasi"/>
+                        <Button text="Batalkan"
+                                onAction="#onBatalkanReservasi"
+                                style="-fx-background-color: #EF5350; -fx-text-fill: white;"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Kanan: Rekam Medis -->
+                <VBox spacing="8"
+                      style="-fx-background-color: white; -fx-border-color: #E0E0E0;">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <Label text="Rekam Medis Terakhir"
+                           style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+
+                    <TableView fx:id="rekamTable" prefHeight="460">
+                        <columns>
+                            <TableColumn fx:id="colIdRekam" text="ID" prefWidth="90"/>
+                            <TableColumn fx:id="colTglPeriksa" text="Tgl Periksa" prefWidth="120"/>
+                            <TableColumn fx:id="colKeluhan" text="Keluhan" prefWidth="190"/>
+                            <TableColumn fx:id="colDiagnosa" text="Diagnosa" prefWidth="190"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <Button text="Lihat Detail Rekam Medis"
+                                onAction="#onDetailRekamMedis"/>
+                    </HBox>
+                </VBox>
+
+            </SplitPane>
+        </VBox>
+    </center>
+
+</BorderPane>
