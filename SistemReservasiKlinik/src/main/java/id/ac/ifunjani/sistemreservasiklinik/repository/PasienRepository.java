@@ -149,7 +149,6 @@ public class PasienRepository {
                 p.setPassword(rs.getString("password"));
             }
 
-            // Tutup koneksi manual biar rapi
             rs.close();
             ps.close();
             conn.close();
