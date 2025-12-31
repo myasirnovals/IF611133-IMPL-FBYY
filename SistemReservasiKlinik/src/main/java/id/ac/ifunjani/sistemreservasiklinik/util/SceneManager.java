@@ -27,7 +27,7 @@ public class SceneManager {
         return stage;
     }
 
-    public void switchScene(String fxmlPath) {
+    public void switchScene(String fxmlPath, String klinikSehatLogin) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();

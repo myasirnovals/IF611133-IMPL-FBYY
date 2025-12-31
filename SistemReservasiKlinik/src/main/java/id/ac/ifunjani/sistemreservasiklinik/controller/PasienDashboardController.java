@@ -14,7 +14,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class PasienDashboardController {
@@ -68,6 +67,6 @@ public class PasienDashboardController {
 
     @FXML
     private void handleLogout() {
-        SceneManager.getInstance().switchScene("/fxml/login.fxml");
+        SceneManager.getInstance().switchScene("/fxml/login.fxml", "KlinikSehat Login");
     }
 }

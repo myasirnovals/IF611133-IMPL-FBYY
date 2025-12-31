@@ -2,8 +2,12 @@ package id.ac.ifunjani.sistemreservasiklinik.service.impl;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.Dokter;
 import id.ac.ifunjani.sistemreservasiklinik.model.Jadwal;
+import id.ac.ifunjani.sistemreservasiklinik.model.RekamMedis;
+import id.ac.ifunjani.sistemreservasiklinik.model.Rujukan;
 import id.ac.ifunjani.sistemreservasiklinik.repository.DokterRepository;
 import id.ac.ifunjani.sistemreservasiklinik.repository.JadwalRepository;
+import id.ac.ifunjani.sistemreservasiklinik.repository.RekamMedisRepository;
+import id.ac.ifunjani.sistemreservasiklinik.repository.RujukanRepository;
 import id.ac.ifunjani.sistemreservasiklinik.service.DokterService;
 
 import java.util.List;
@@ -11,10 +15,14 @@ import java.util.List;
 public class DokterServiceImpl implements DokterService {
     private final DokterRepository dokterRepository;
     private final JadwalRepository jadwalRepository;
+    private final RekamMedisRepository rekamMedisRepository;
+    private final RujukanRepository rujukanRepository;
 
-    public DokterServiceImpl(DokterRepository dokterRepo, JadwalRepository jadwalRepo) {
+    public DokterServiceImpl(DokterRepository dokterRepo, JadwalRepository jadwalRepo, RekamMedisRepository rekamMedisRepo, RujukanRepository rujukanRepo) {
         this.dokterRepository = dokterRepo;
         this.jadwalRepository = jadwalRepo;
+        this.rekamMedisRepository = rekamMedisRepo;
+        this.rujukanRepository = rujukanRepo;
     }
 
     @Override
@@ -82,5 +90,17 @@ public class DokterServiceImpl implements DokterService {
     @Override
     public String generateIdJadwal() {
         return jadwalRepository.generateId();
+    }
+
+    @Override
+    public List<RekamMedis> getRekamMedisTerakhir(String idDokter, int limit) {
+        Dokter dokter = getDokterById(idDokter);
+        return rekamMedisRepository.findAll();
+    }
+
+    @Override
+    public List<Rujukan> getRujukanTerakhir(String idDokter, int limit) {
+        Dokter dokter = getDokterById(idDokter);
+        return rujukanRepository.findTopNByDokter(dokter, limit);
     }
 }

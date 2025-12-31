@@ -2,6 +2,8 @@ package id.ac.ifunjani.sistemreservasiklinik.service;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.Dokter;
 import id.ac.ifunjani.sistemreservasiklinik.model.Jadwal;
+import id.ac.ifunjani.sistemreservasiklinik.model.RekamMedis;
+import id.ac.ifunjani.sistemreservasiklinik.model.Rujukan;
 
 import java.util.List;
 
@@ -27,4 +29,8 @@ public interface DokterService {
     boolean hapusJadwal(String idJadwal);
 
     String generateIdJadwal();
+
+    List<RekamMedis> getRekamMedisTerakhir(String idDokter, int limit);
+
+    List<Rujukan> getRujukanTerakhir(String idDokter, int limit);
 }

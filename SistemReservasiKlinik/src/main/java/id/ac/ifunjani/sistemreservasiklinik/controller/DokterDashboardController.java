@@ -1,9 +1,9 @@
 package id.ac.ifunjani.sistemreservasiklinik.controller;
 
-import id.ac.ifunjani.sistemreservasiklinik.entity.Dokter;
-import id.ac.ifunjani.sistemreservasiklinik.entity.Jadwal;
-import id.ac.ifunjani.sistemreservasiklinik.entity.RekamMedis;
-import id.ac.ifunjani.sistemreservasiklinik.entity.Rujukan;
+import id.ac.ifunjani.sistemreservasiklinik.model.Dokter;
+import id.ac.ifunjani.sistemreservasiklinik.model.Jadwal;
+import id.ac.ifunjani.sistemreservasiklinik.model.RekamMedis;
+import id.ac.ifunjani.sistemreservasiklinik.model.Rujukan;
 import id.ac.ifunjani.sistemreservasiklinik.repository.DokterRepository;
 import id.ac.ifunjani.sistemreservasiklinik.repository.JadwalRepository;
 import id.ac.ifunjani.sistemreservasiklinik.repository.RekamMedisRepository;
@@ -68,7 +68,7 @@ public class DokterDashboardController {
         String idDokter = SessionUser.getInstance().getUserId();
 
         if (idDokter == null) {
-            SceneManager.getInstance().switchScene("/fxml/login.fxml", "KlinikSehat Login");
+            SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml", "KlinikSehat Login");
             return;
         }
 
@@ -131,6 +131,6 @@ public class DokterDashboardController {
     @FXML
     public void onLogout() {
         SessionUser.getInstance().clear();
-        SceneManager.getInstance().switchScene("/fxml/login.fxml", "KlinikSehat Login");
+        SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml", "KlinikSehat Login");
     }
 }
