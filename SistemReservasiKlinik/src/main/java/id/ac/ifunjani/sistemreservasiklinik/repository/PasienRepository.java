@@ -121,4 +121,41 @@ public class PasienRepository {
         }
         return p;
     }
+
+    public Pasien findByIdAndPassword(String id, String password) {
+        Pasien p = null;
+        String sql = "SELECT * FROM pasien WHERE id_pasien = ? AND password = ?";
+
+        try {
+            Connection conn = DatabaseConfig.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                p = new Pasien();
+                p.setIdPasien(rs.getString("id_pasien"));
+                p.setNamaLengkap(rs.getString("nama_lengkap"));
+                p.setAlamat(rs.getString("alamat"));
+
+                Date tgl = rs.getDate("tanggal_lahir");
+                if (tgl != null) {
+                    p.setTanggalLahir(tgl.toLocalDate());
+                }
+
+                p.setNoTelepon(rs.getString("no_telepon"));
+                p.setPassword(rs.getString("password"));
+            }
+
+            rs.close();
+            ps.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
 }
