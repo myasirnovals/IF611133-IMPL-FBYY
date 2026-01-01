@@ -5,6 +5,7 @@ import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
 import id.ac.ifunjani.sistemreservasiklinik.model.Reservasi;
 import id.ac.ifunjani.sistemreservasiklinik.model.Staff;
 import id.ac.ifunjani.sistemreservasiklinik.service.StaffService;
+import id.ac.ifunjani.sistemreservasiklinik.service.impl.StaffServiceImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
