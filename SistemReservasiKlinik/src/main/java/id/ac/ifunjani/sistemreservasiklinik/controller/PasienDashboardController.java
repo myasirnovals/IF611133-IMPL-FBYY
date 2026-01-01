@@ -4,6 +4,7 @@ import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
 import id.ac.ifunjani.sistemreservasiklinik.model.RekamMedis;
 import id.ac.ifunjani.sistemreservasiklinik.repository.RekamMedisRepository;
 import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
+import id.ac.ifunjani.sistemreservasiklinik.util.UserSession;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -14,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class PasienDashboardController {
@@ -41,14 +43,17 @@ public class PasienDashboardController {
 
     @FXML
     public void initialize() {
-    }
+        Pasien pasienAktif = UserSession.getInstance().getPasien();
 
-    public void setPasien(Pasien pasien) {
-        this.currentPasien = pasien;
-        welcomeLabel.setText("Selamat datang, Sdr/i " + pasien.getNamaLengkap());
+        if (pasienAktif != null) {
+            this.currentPasien = pasienAktif;
+            welcomeLabel.setText("Selamat datang, Sdr/i " + pasienAktif.getNamaLengkap());
 
-        setupColumns();
-        loadData(pasien.getIdPasien());
+            setupColumns();
+            loadData(pasienAktif.getIdPasien());
+        } else {
+            welcomeLabel.setText("Error: User belum login");
+        }
     }
 
     private void setupColumns() {
@@ -67,6 +72,7 @@ public class PasienDashboardController {
 
     @FXML
     private void handleLogout() {
-        SceneManager.getInstance().switchScene("/fxml/login.fxml", "KlinikSehat Login");
+        UserSession.getInstance().clearSession();
+        SceneManager.getInstance().switchScene("/fxml/login.fxml");
     }
 }
