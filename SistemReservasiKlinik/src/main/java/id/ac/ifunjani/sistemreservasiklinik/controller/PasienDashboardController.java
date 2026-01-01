@@ -73,6 +73,6 @@ public class PasienDashboardController {
     @FXML
     private void handleLogout() {
         UserSession.getInstance().clearSession();
-        SceneManager.getInstance().switchScene("/fxml/login.fxml");
+        SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml");
     }
 }
