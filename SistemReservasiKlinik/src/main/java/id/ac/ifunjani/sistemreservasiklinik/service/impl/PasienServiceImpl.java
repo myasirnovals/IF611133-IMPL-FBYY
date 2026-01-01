@@ -12,7 +12,7 @@ public class PasienServiceImpl implements PasienService {
     @Override
     public boolean daftarPasien(Pasien p) {
         String uuid = UUID.randomUUID().toString().replace("-", "");
-        String idBaru = uuid.substring(0, 16).toUpperCase(); // Ambil 16 karakter saja
+        String idBaru = uuid.substring(0, 16).toUpperCase();
 
         p.setIdPasien(idBaru);
 
