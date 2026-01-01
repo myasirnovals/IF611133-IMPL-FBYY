@@ -11,7 +11,7 @@ import id.ac.ifunjani.sistemreservasiklinik.repository.RujukanRepository;
 import id.ac.ifunjani.sistemreservasiklinik.service.DokterService;
 import id.ac.ifunjani.sistemreservasiklinik.service.impl.DokterServiceImpl;
 import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
-import id.ac.ifunjani.sistemreservasiklinik.session.SessionUser;
+import id.ac.ifunjani.sistemreservasiklinik.util.UserSession;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -65,21 +65,21 @@ public class DokterDashboardController {
 
     @FXML
     public void initialize() {
-        String idDokter = SessionUser.getInstance().getUserId();
+        Dokter idDokter = UserSession.getInstance().getDokter();
 
         if (idDokter == null) {
             SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml", "KlinikSehat Login");
             return;
         }
 
-        Dokter dokter = dokterService.getDokterById(idDokter);
+        Dokter dokter = dokterService.getDokterById(idDokter.getIdDokter());
         if (dokter != null) {
             welcomeLabel.setText("Selamat datang, dr. " + dokter.getNamaDokter());
         }
 
         setupColumns();
 
-        loadData(idDokter);
+        loadData(idDokter.getIdDokter());
     }
 
     private void setupColumns() {
@@ -130,7 +130,7 @@ public class DokterDashboardController {
 
     @FXML
     public void onLogout() {
-        SessionUser.getInstance().clear();
+        UserSession.getInstance().clearSession();
         SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml", "KlinikSehat Login");
     }
 }
