@@ -15,8 +15,13 @@ public class Reservasi {
         this.status = status;
     }
 
-    public String getNamaPasien() { return pasien != null ? pasien.getNamaLengkap() : "-"; }
-    public String getNamaDokter() { return dokter != null ? dokter.getNamaDokter() : "-"; }
+    public String getNamaPasien() {
+        return pasien != null ? pasien.getNamaLengkap() : "-";
+    }
+
+    public String getNamaDokter() {
+        return dokter != null ? dokter.getNamaDokter() : "-";
+    }
 
     public String getIdReservasi() { return idReservasi; }
     public String getInfoJadwal() { return infoJadwal; }
