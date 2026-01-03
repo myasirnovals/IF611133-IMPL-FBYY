@@ -1,52 +1,35 @@
 package id.ac.ifunjani.sistemreservasiklinik.service.impl;
 
-import id.ac.ifunjani.sistemreservasiklinik.model.Dokter;
-import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
-import id.ac.ifunjani.sistemreservasiklinik.model.Reservasi;
-import id.ac.ifunjani.sistemreservasiklinik.model.Staff;
+import id.ac.ifunjani.sistemreservasiklinik.model.*;
+import id.ac.ifunjani.sistemreservasiklinik.repository.*;
 import id.ac.ifunjani.sistemreservasiklinik.service.StaffService;
-
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
 
+    private final StaffRepository staffRepo = new StaffRepositoryImpl();
+    private final ReservasiRepository resRepo = new ReservasiRepositoryImpl();
 
     @Override
     public Staff getById(String idStaff) {
-
-        return null;
+        return staffRepo.findById(idStaff);
     }
 
     @Override
-    public long countPasien() {
-
-        return 0;
-    }
+    public long countPasien() { return resRepo.countPasien(); }
 
     @Override
-    public long countDokter() {
-        return 0;
-    }
+    public long countDokter() { return resRepo.countDokter(); }
 
     @Override
-    public long countReservasi() {
-        return 0;
-    }
+    public long countReservasi() { return resRepo.countReservasi(); }
 
     @Override
-    public List<Reservasi> getAllReservasi() {
-        return new ArrayList<>();
-    }
+    public List<Reservasi> getAllReservasi() { return resRepo.findAll(); }
 
     @Override
-    public List<Pasien> getAllPasien() {
-        return new ArrayList<>();
-    }
+    public List<Pasien> getAllPasien() { return resRepo.findAllPasien(); }
 
     @Override
-    public List<Dokter> getAllDokter() {
-        return new ArrayList<>();
-    }
+    public List<Dokter> getAllDokter() { return resRepo.findAllDokter(); }
 }
