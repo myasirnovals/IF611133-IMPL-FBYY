@@ -7,7 +7,7 @@ public class Reservasi {
     private String infoJadwal;
     private String status;
 
-    public Reservasi(String idReservasi, Pasien pasien, Dokter dokter, String infoJadwal, String status) {
+    public Reservasi() {
         this.idReservasi = idReservasi;
         this.pasien = pasien;
         this.dokter = dokter;
@@ -26,4 +26,13 @@ public class Reservasi {
     public String getIdReservasi() { return idReservasi; }
     public String getInfoJadwal() { return infoJadwal; }
     public String getStatus() { return status; }
+
+    public void setIdReservasi(String idReservasi) {
+    }
+
+    public void setInfoJadwal(String infoJadwal) {
+    }
+
+    public void setStatus(String status) {
+    }
 }

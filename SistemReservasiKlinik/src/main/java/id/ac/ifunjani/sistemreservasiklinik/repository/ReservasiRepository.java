@@ -7,7 +7,7 @@ public interface ReservasiRepository {
     List<Reservasi> findAll();
     List<Pasien> findAllPasien();
     List<Dokter> findAllDokter();
-
+    void saveReservasi(Reservasi reservasi);
     long countReservasi();
     long countPasien();
     long countDokter();
