@@ -9,6 +9,7 @@ import id.ac.ifunjani.sistemreservasiklinik.service.staffRepositoryImpl;
 import id.ac.ifunjani.sistemreservasiklinik.service.AuthService;
 import id.ac.ifunjani.sistemreservasiklinik.service.impl.AuthServiceImpl;
 import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
+import id.ac.ifunjani.sistemreservasiklinik.util.UserSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -64,9 +65,9 @@ public class LoginController {
                 return;
             }
 
-            SessionUser.getInstance().setRole("PASIEN");
-            SessionUser.getInstance().setUserId(pasien.getIdPasien());
-            SessionUser.getInstance().setNama(pasien.getNamaLengkap());
+            UserSession.getInstance().setRole("PASIEN");
+            UserSession.getInstance().setUserId(pasien.getIdPasien());
+            UserSession.getInstance().setNama(pasien.getNamaLengkap());
 
             SceneManager.getInstance().switchScene(
                     "/fxml/dashboard_pasien.fxml",
@@ -80,9 +81,9 @@ public class LoginController {
                 return;
             }
 
-            SessionUser.getInstance().setRole("DOKTER");
-            SessionUser.getInstance().setUserId(dokter.getIdDokter());
-            SessionUser.getInstance().setNama(dokter.getNamaDokter());
+            UserSession.getInstance().setRole("DOKTER");
+            UserSession.getInstance().setUserId(dokter.getIdDokter());
+            UserSession.getInstance().setNama(dokter.getNamaDokter());
 
             SceneManager.getInstance().switchScene(
                     "/fxml/dashboard_dokter.fxml",
@@ -96,9 +97,9 @@ public class LoginController {
                 return;
             }
 
-            SessionUser.getInstance().setRole("STAFF");
-            SessionUser.getInstance().setUserId(staff.getIdStaff());
-            SessionUser.getInstance().setNama(staff.getNama());
+            UserSession.getInstance().setRole("STAFF");
+            UserSession.getInstance().setUserId(staff.getIdStaff());
+            UserSession.getInstance().setNama(staff.getNama());
 
             SceneManager.getInstance().switchScene(
                     "/fxml/dashboard_staff.fxml",
