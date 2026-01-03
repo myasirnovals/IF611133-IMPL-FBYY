@@ -6,7 +6,6 @@ import id.ac.ifunjani.sistemreservasiklinik.service.StaffService;
 import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
-
     private final StaffRepository staffRepo = new StaffRepositoryImpl();
     private final ReservasiRepository resRepo = new ReservasiRepositoryImpl();
 
@@ -16,13 +15,19 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public long countPasien() { return resRepo.countPasien(); }
+    public long countPasien() {
+        return resRepo.countPasien();
+    }
 
     @Override
-    public long countDokter() { return resRepo.countDokter(); }
+    public long countDokter() {
+        return resRepo.countDokter();
+    }
 
     @Override
-    public long countReservasi() { return resRepo.countReservasi(); }
+    public long countReservasi() {
+        return resRepo.countReservasi();
+    }
 
     @Override
     public List<Reservasi> getAllReservasi() { return resRepo.findAll(); }
