@@ -1,7 +1,6 @@
-package id.ac.ifunjani.sistemreservasiklinik.service.impl;
+package id.ac.ifunjani.sistemreservasiklinik.repository;
 
 import id.ac.ifunjani.sistemreservasiklinik.model.*;
-import id.ac.ifunjani.sistemreservasiklinik.service.ReservasiRepository;
 
 import java.util.ArrayList;
 import java.util.List;
