@@ -96,7 +96,7 @@ public class LoginController {
             UserSession.getInstance().setStaff(staff);
 
             SceneManager.getInstance().switchScene(
-                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard-staff.html",
+                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard-staff.fxml",
                     "Dashboard Staff"
             );
         }
