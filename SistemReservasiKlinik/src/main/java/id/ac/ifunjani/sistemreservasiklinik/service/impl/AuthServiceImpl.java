@@ -37,6 +37,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Staff loginStaff(String idStaff, String password) {
-        return StaffRepository.findByIdAndPassword(idStaff, password);
+        return StaffRepository.findById(idStaff);
     }
 }
