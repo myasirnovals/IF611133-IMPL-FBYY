@@ -96,7 +96,7 @@ public class LoginController {
             UserSession.getInstance().setStaff(staff);
 
             SceneManager.getInstance().switchScene(
-                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard-staff.html", // Perhatikan ekstensi file di screenshot Anda (.html atau .fxml?)
+                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard-staff.html",
                     "Dashboard Staff"
             );
         }
