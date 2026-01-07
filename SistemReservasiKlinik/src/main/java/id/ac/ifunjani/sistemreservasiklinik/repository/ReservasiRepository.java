@@ -1,14 +1,65 @@
 package id.ac.ifunjani.sistemreservasiklinik.repository;
 
+import id.ac.ifunjani.sistemreservasiklinik.config.DatabaseConfig;
 import id.ac.ifunjani.sistemreservasiklinik.model.*;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public interface ReservasiRepository {
-    List<Reservasi> findAll();
-    List<Pasien> findAllPasien();
-    List<Dokter> findAllDokter();
-    void saveReservasi(Reservasi reservasi);
-    long countReservasi();
-    long countPasien();
-    long countDokter();
+public class ReservasiRepository {
+
+    public List<Reservasi> findAll() {
+        List<Reservasi> list = new ArrayList<>();
+
+        String sql = "SELECT r.*, p.nama_pasien, d.nama_dokter FROM reservasi r " +
+                "JOIN pasien p ON r.id_pasien = p.id_pasien " +
+                "JOIN dokter d ON r.id_dokter = d.id_dokter";
+
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Reservasi res = new Reservasi();
+                res.setIdReservasi(rs.getString("id_reservasi"));
+                res.setInfoJadwal(rs.getString("info_jadwal"));
+                res.setStatus(rs.getString("status"));
+                list.add(res);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public long countReservasi() {
+        String sql = "SELECT COUNT(*) FROM reservasi";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) return rs.getLong(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<Pasien> findAllPasien() {
+        return new ArrayList<>();
+    }
+
+    public List<Dokter> findAllDokter() {
+        return new ArrayList<>();
+    }
+
+    public void saveReservasi(Reservasi reservasi) {
+    }
+
+    public long countPasien() {
+        return 0;
+    }
+
+    public long countDokter() {
+        return 0;
+    }
 }
