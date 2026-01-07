@@ -6,8 +6,8 @@ import id.ac.ifunjani.sistemreservasiklinik.service.StaffService;
 import java.util.List;
 
 public class StaffServiceImpl implements StaffService {
-    private final StaffRepository staffRepo = new StaffRepositoryImpl();
-    private final ReservasiRepository resRepo = new ReservasiRepositoryImpl();
+    private final StaffRepository staffRepo = new StaffRepository();
+    private final ReservasiRepository resRepo = new ReservasiRepository();
 
     @Override
     public Staff getById(String idStaff) {
