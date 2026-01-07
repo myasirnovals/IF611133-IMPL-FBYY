@@ -65,28 +65,24 @@ public class LoginController {
                 return;
             }
 
-            UserSession.getInstance().setRole("PASIEN");
-            UserSession.getInstance().setUserId(pasien.getIdPasien());
-            UserSession.getInstance().setNama(pasien.getNamaLengkap());
+            UserSession.getInstance().setPasien(pasien);
 
             SceneManager.getInstance().switchScene(
-                    "/fxml/dashboard_pasien.fxml",
+                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard_pasien.fxml",
                     "Dashboard Pasien"
             );
 
         } else if ("Dokter".equalsIgnoreCase(role)) {
             Dokter dokter = authService.loginDokter(id, password);
             if (dokter == null) {
-                errorLabel.setText("Dokter tidak ditemukan.");
+                errorLabel.setText("Dokter tidak ditemukan atau password salah.");
                 return;
             }
 
-            UserSession.getInstance().setRole("DOKTER");
-            UserSession.getInstance().setUserId(dokter.getIdDokter());
-            UserSession.getInstance().setNama(dokter.getNamaDokter());
+            UserSession.getInstance().setDokter(dokter);
 
             SceneManager.getInstance().switchScene(
-                    "/fxml/dashboard_dokter.fxml",
+                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard_dokter.fxml",
                     "Dashboard Dokter"
             );
 
@@ -97,12 +93,10 @@ public class LoginController {
                 return;
             }
 
-            UserSession.getInstance().setRole("STAFF");
-            UserSession.getInstance().setUserId(staff.getIdStaff());
-            UserSession.getInstance().setNama(staff.getNama());
+            UserSession.getInstance().setStaff(staff);
 
             SceneManager.getInstance().switchScene(
-                    "/fxml/dashboard_staff.fxml",
+                    "/id/ac/ifunjani/sistemreservasiklinik/view/dashboard-staff.html", // Perhatikan ekstensi file di screenshot Anda (.html atau .fxml?)
                     "Dashboard Staff"
             );
         }
@@ -111,7 +105,7 @@ public class LoginController {
     @FXML
     public void onRegisterPasien() {
         SceneManager.getInstance().switchScene(
-                "/fxml/register_pasien.fxml",
+                "/id/ac/ifunjani/sistemreservasiklinik/view/register_pasien.fxml",
                 "Registrasi Pasien"
         );
     }
