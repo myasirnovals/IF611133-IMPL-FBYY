@@ -12,6 +12,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import java.time.LocalDate;
 
 public class RegisterPasienController {
 
@@ -44,11 +45,15 @@ public class RegisterPasienController {
         String id = idField.getText();
         String nama = namaField.getText();
         String alamat = alamatArea.getText();
-        var tglLahir = tglLahirPicker.getValue();
+        LocalDate tglLahir = tglLahirPicker.getValue();
         String telp = telpField.getText();
         String pass = passwordField.getText();
 
-        if (id.isEmpty() || nama.isEmpty() || pass.isEmpty() || tglLahir == null) {
+        if (id == null || id.isEmpty() ||
+                nama == null || nama.isEmpty() ||
+                pass == null || pass.isEmpty() ||
+                tglLahir == null) {
+
             showAlert(Alert.AlertType.ERROR, "Error",
                     "Harap isi semua field wajib (ID, Nama, Tgl Lahir, Password)!");
             return;
@@ -65,7 +70,7 @@ public class RegisterPasienController {
                 onBack();
             } else {
                 showAlert(Alert.AlertType.ERROR, "Gagal",
-                        "Registrasi gagal. ID pasien sudah terdaftar.");
+                        "Registrasi gagal. ID pasien '" + id + "' sudah terdaftar.");
             }
         } catch (Exception e) {
             e.printStackTrace();
