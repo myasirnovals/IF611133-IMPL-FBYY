@@ -3,6 +3,8 @@ package id.ac.ifunjani.sistemreservasiklinik.controller;
 import id.ac.ifunjani.sistemreservasiklinik.model.*;
 import id.ac.ifunjani.sistemreservasiklinik.service.StaffService;
 import id.ac.ifunjani.sistemreservasiklinik.service.impl.StaffServiceImpl;
+import id.ac.ifunjani.sistemreservasiklinik.util.UserSession;
+import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -37,14 +39,24 @@ public class StaffController implements Initializable {
     }
 
     private void loadDashboardData() {
-        Staff currentStaff = staffService.getById("ST001");
+        Staff currentStaff = UserSession.getInstance().getStaff();
+
         if (currentStaff != null) {
             lblNamaStaff.setText(currentStaff.getNama());
+        } else {
+            lblNamaStaff.setText("Staff Mode");
         }
 
         lblJumlahPasien.setText(String.valueOf(staffService.countPasien()));
         lblJumlahDokter.setText(String.valueOf(staffService.countDokter()));
         lblJumlahReservasi.setText(String.valueOf(staffService.countReservasi()));
+    }
+
+    @FXML
+    public void onLogout() {
+        UserSession.getInstance().clearSession();
+
+        SceneManager.getInstance().switchScene("/fxml/login.fxml", "KlinikSehat Login");
     }
 
     private void setupTableReservasi() {
