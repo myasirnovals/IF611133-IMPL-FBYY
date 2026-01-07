@@ -9,7 +9,11 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         SceneManager.getInstance().setStage(primaryStage);
         primaryStage.setTitle("Aplikasi Klinik Sehat");
-        SceneManager.getInstance().switchScene("/id/ac/ifunjani/sistemreservasiklinik/view/", "KlinikSehat Login");
+
+        SceneManager.getInstance().switchScene(
+                "/id/ac/ifunjani/sistemreservasiklinik/view/login.fxml",
+                "KlinikSehat Login"
+        );
     }
 
     public static void main(String[] args) {
