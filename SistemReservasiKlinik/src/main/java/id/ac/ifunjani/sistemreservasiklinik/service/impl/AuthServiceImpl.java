@@ -6,23 +6,23 @@ import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
 import id.ac.ifunjani.sistemreservasiklinik.model.Staff;
 import id.ac.ifunjani.sistemreservasiklinik.repository.DokterRepository;
 import id.ac.ifunjani.sistemreservasiklinik.repository.PasienRepository;
-import id.ac.ifunjani.sistemreservasiklinik.repository.staffRepository;
+import id.ac.ifunjani.sistemreservasiklinik.repository.StaffRepository;
 import id.ac.ifunjani.sistemreservasiklinik.service.AuthService;
 
 public class AuthServiceImpl implements AuthService {
 
     private final PasienRepository pasienRepository;
     private final DokterRepository dokterRepository;
-    private final staffRepository staffRepository;
+    private final StaffRepository StaffRepository;
 
     public AuthServiceImpl(
             PasienRepository pasienRepository,
             DokterRepository dokterRepository,
-            staffRepository staffRepositoryi) {
+            StaffRepository StaffRepository) {
 
         this.pasienRepository = pasienRepository;
         this.dokterRepository = dokterRepository;
-        this.staffRepository = staffRepository;
+        this.StaffRepository = StaffRepository;
     }
 
     @Override
@@ -37,6 +37,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Staff loginStaff(String idStaff, String password) {
-        return staffRepository.findByIdAndPassword(idStaff, password);
+        return StaffRepository.findByIdAndPassword(idStaff, password);
     }
 }

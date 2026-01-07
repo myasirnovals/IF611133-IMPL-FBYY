@@ -5,7 +5,7 @@ import id.ac.ifunjani.sistemreservasiklinik.model.Pasien;
 import id.ac.ifunjani.sistemreservasiklinik.model.Staff;
 import id.ac.ifunjani.sistemreservasiklinik.repository.DokterRepository;
 import id.ac.ifunjani.sistemreservasiklinik.repository.PasienRepository;
-import id.ac.ifunjani.sistemreservasiklinik.service.staffRepository;
+import id.ac.ifunjani.sistemreservasiklinik.service.StaffRepository;
 import id.ac.ifunjani.sistemreservasiklinik.service.AuthService;
 import id.ac.ifunjani.sistemreservasiklinik.service.impl.AuthServiceImpl;
 import id.ac.ifunjani.sistemreservasiklinik.util.SceneManager;
@@ -36,7 +36,7 @@ public class LoginController {
         this.authService = new AuthServiceImpl(
                 new PasienRepository(),
                 new DokterRepository(),
-                new staffRepository()
+                new StaffRepository()
         );
     }
 
