@@ -14,8 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StaffController implements Initializable {
-
-    // Pastikan StaffServiceImpl sudah mengimplementasikan semua method di bawah
+    
     private final StaffService staffService = new StaffServiceImpl();
 
     @FXML private Label lblNamaStaff, lblJumlahPasien, lblJumlahReservasi, lblJumlahDokter;
