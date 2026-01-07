@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="id.ac.ifunjani.sistemreservasiklinik.controller.RegisterPasienController">
+
+    <content>
+        <VBox alignment="CENTER" spacing="0" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <VBox maxWidth="400" spacing="15" style="-fx-background-color: white; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-background-radius: 5;">
+
+                <Label text="Registrasi Pasien Baru" textFill="#333333">
+                    <font>
+                        <Font name="System Bold" size="20.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="10"/>
+                    </VBox.margin>
+                </Label>
+
+                <VBox spacing="5">
+                    <Label text="ID Pasien (No. KTP / Identitas)"/>
+                    <TextField fx:id="idField" promptText="Masukkan ID Unik"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Nama Lengkap"/>
+                    <TextField fx:id="namaField" promptText="Sesuai KTP"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Alamat Lengkap"/>
+                    <TextArea fx:id="alamatArea" prefHeight="60" wrapText="true" promptText="Jalan, No Rumah, Kota"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Tanggal Lahir"/>
+                    <DatePicker fx:id="tglLahirPicker" maxWidth="Infinity" promptText="Pilih Tanggal"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Nomor Telepon"/>
+                    <TextField fx:id="telpField" promptText="08xxxxxxxxxx"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Password"/>
+                    <PasswordField fx:id="passwordField" promptText="Buat Password"/>
+                </VBox>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 15 0 0 0;">
+                    <Button text="Batal" onAction="#onBack"
+                            style="-fx-background-color: #e0e0e0; -fx-text-fill: black;" />
+
+                    <Button text="Daftar Sekarang" onAction="#onDaftar" defaultButton="true"
+                            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" />
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>
