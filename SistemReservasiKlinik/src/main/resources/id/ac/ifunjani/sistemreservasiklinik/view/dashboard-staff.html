@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="id.ac.ifunjani.sistemreservasiklinik.controller.StaffController">
+    <top>
+        <HBox spacing="10" padding="10" style="-fx-background-color: #34495e;">
+            <Label fx:id="lblNamaStaff" text="Nama Staff" style="-fx-text-fill: white; -fx-font-size: 18px;"/>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#onLogout"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="15" padding="15">
+            <HBox spacing="20">
+                <VBox alignment="CENTER" prefWidth="150" style="-fx-border-color: gray;">
+                    <Label text="Total Pasien"/>
+                    <Label fx:id="lblJumlahPasien" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+                <VBox alignment="CENTER" prefWidth="150" style="-fx-border-color: gray;">
+                    <Label text="Total Dokter"/>
+                    <Label fx:id="lblJumlahDokter" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+                <VBox alignment="CENTER" prefWidth="150" style="-fx-border-color: gray;">
+                    <Label text="Total Reservasi"/>
+                    <Label fx:id="lblJumlahReservasi" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+            </HBox>
+
+            <TabPane VBox.vgrow="ALWAYS">
+                <Tab text="Reservasi" closable="false">
+                    <TableView fx:id="tblReservasi">
+                        <columns>
+                            <TableColumn fx:id="colResId" text="ID"/>
+                            <TableColumn fx:id="colResPasien" text="Pasien"/>
+                            <TableColumn fx:id="colResDokter" text="Dokter"/>
+                            <TableColumn fx:id="colResJadwal" text="Jadwal"/>
+                            <TableColumn fx:id="colResStatus" text="Status"/>
+                        </columns>
+                    </TableView>
+                </Tab>
+                <Tab text="Pasien" closable="false">
+                    <TableView fx:id="tblPasien">
+                        <columns>
+                            <TableColumn fx:id="colPasienNama" text="Nama Lengkap"/>
+                            <TableColumn fx:id="colPasienTelp" text="Telepon"/>
+                        </columns>
+                    </TableView>
+                </Tab>
+                <Tab text="Dokter" closable="false">
+                    <TableView fx:id="tblDokter">
+                        <columns>
+                            <TableColumn fx:id="colDokterNama" text="Nama Dokter"/>
+                            <TableColumn fx:id="colDokterSpesialis" text="Spesialis"/>
+                        </columns>
+                    </TableView>
+                </Tab>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>
